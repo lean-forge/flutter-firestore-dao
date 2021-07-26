@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recipes/screens/index.dart';
 
 final Color darkBlue = Color.fromARGB(255, 18, 32, 47);
 
@@ -11,14 +12,11 @@ class RecipesApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Recipes',
       theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: darkBlue),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Recipes'),
-        ),
-        body: Center(
-          child: Text('Awesome Recipes'),
-        ),
-      ),
+      initialRoute: RecipesScreen.routeName,
+      routes: {
+        RecipesScreen.routeName: (ctx) => RecipesScreen(),
+        RecipeDetailScreen.routeName: (ctx) => RecipeDetailScreen()
+      },
     );
   }
 }
