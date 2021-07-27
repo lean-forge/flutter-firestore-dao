@@ -18,10 +18,10 @@ class MapConverters {
   /// Converters.mapConverter<Recipe>();
   /// ```
   static final Map<Type, MapConverter> _mapConverterMap = {
-    Author: AuthorMapConverter(),
-    Recipe: RecipeMapConverter(),
-    FirestoreAuthor: FirestoreAuthorMapConverter(),
-    FirestoreRecipe: FirestoreRecipeMapConverter(),
+    Author: const AuthorMapConverter(),
+    Recipe: const RecipeMapConverter(),
+    FirestoreAuthor: const FirestoreAuthorMapConverter(),
+    FirestoreRecipe: const FirestoreRecipeMapConverter(),
   };
 
   /// Returns the [MapConverter] instance associated with the subtype [T].

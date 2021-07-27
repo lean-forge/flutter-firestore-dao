@@ -1,6 +1,7 @@
 import 'package:recipes/models/index.dart';
 
-class AuthorMapConverter extends MapConverter<Author> {
+class AuthorMapConverter implements MapConverter<Author> {
+
   @override
   Author fromMap(Map<String, Object?> json) {
     final name = json['name'] as String;
@@ -14,6 +15,8 @@ class AuthorMapConverter extends MapConverter<Author> {
     final genderString = model.gender == Gender.Female ? 'female' : 'male';
     return {'name': model.name, 'gender': genderString};
   }
+
+  const AuthorMapConverter();
 }
 
 enum Gender { Female, Male }

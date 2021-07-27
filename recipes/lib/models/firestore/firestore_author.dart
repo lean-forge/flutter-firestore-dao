@@ -1,8 +1,10 @@
 import 'package:recipes/models/index.dart';
 
-class FirestoreAuthorMapConverter extends MapConverter<FirestoreAuthor> {
+class FirestoreAuthorMapConverter implements MapConverter<FirestoreAuthor> {
+  const FirestoreAuthorMapConverter();
+
   /// Reuse the conversion logic for ``Author``, defined in ``AuthorMapConverter``
-  final _authorMapConverter = AuthorMapConverter();
+  static const _authorMapConverter = AuthorMapConverter();
   @override
   FirestoreAuthor fromMap(Map<String, Object?> json) {
     final modelID = json['recipeID'] as String;

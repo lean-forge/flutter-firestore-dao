@@ -1,9 +1,11 @@
 import 'package:recipes/models/app/index.dart';
 import 'package:recipes/models/converters/index.dart';
 
-class RecipeMapConverter extends MapConverter<Recipe> {
+class RecipeMapConverter implements MapConverter<Recipe> {
+  const RecipeMapConverter();
+
   /// Reuse the conversion logic for ``Author``, defined in ``AuthorMapConverter``
-  final _authorMapConverter = AuthorMapConverter();
+  static const _authorMapConverter = AuthorMapConverter();
 
   List<String> _parseStringList(List<dynamic> list) {
     return list.map((item) => item as String).toList();

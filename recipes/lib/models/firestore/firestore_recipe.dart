@@ -1,8 +1,10 @@
 import 'package:recipes/models/index.dart';
 
-class FirestoreRecipeMapConverter extends MapConverter<FirestoreRecipe> {
+class FirestoreRecipeMapConverter implements MapConverter<FirestoreRecipe> {
+  const FirestoreRecipeMapConverter();
+
   /// Reuse the conversion logic for ``Recipe``, defined in ``RecipeMapConverter``
-  final _recipeMapConverter = RecipeMapConverter();
+  static const _recipeMapConverter = RecipeMapConverter();
   @override
   FirestoreRecipe fromMap(Map<String, Object?> json) {
     final modelID = json['recipeID'] as String;
