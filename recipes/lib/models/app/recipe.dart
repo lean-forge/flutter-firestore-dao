@@ -3,7 +3,24 @@ import 'package:recipes/models/converters/index.dart';
 
 class RecipeMapConverter extends MapConverter<Recipe> {
   /// Reuse the conversion logic for ``Author``, defined in ``AuthorMapConverter``
-  final _authorMapConverter = Converters.mapConverter<Author>();
+  final _authorMapConverter = AuthorMapConverter();
+
+  List<String> _parseStringList(List<dynamic> list) {
+    return list.map((item) => item as String).toList();
+  }
+
+  double _parseDouble(Object number) {
+    if (number.runtimeType == int) {
+      return (number as int).toDouble();
+    }
+    if (number.runtimeType == String) {
+      return double.parse(number as String);
+    }
+    if (number.runtimeType == double) {
+      return number as double;
+    }
+    return 0.0;
+  }
 
   @override
   Recipe fromMap(Map<String, Object?> json) {
@@ -11,12 +28,12 @@ class RecipeMapConverter extends MapConverter<Recipe> {
         title: json['title'] as String,
         author:
             _authorMapConverter.fromMap(json['author'] as Map<String, Object?>),
-        totalTime: json['totalTime'] as int,
+        totalTime: json['total_time'] as int,
         yields: json['yields'] as String,
-        imageUrl: json['imageUrl'] as String,
-        ingredients: json['ingredients'] as List<String>,
+        imageUrl: json['image'] as String,
+        ingredients: _parseStringList(json['ingredients'] as List),
         instructions: json['instructions'] as String,
-        ratings: json['ratings'] as double);
+        ratings: _parseDouble(json['ratings']!));
   }
 
   @override

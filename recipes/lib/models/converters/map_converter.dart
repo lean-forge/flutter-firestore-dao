@@ -1,4 +1,6 @@
 import 'package:recipes/models/app/index.dart';
+import 'package:recipes/models/firestore/firestore_author.dart';
+import 'package:recipes/models/firestore/firestore_recipe.dart';
 
 /// Global static utility class with the responsibility of associating
 /// supported [Type]s with a single instance
@@ -16,6 +18,8 @@ class MapConverters {
   static final Map<Type, MapConverter> _mapConverterMap = {
     Author: AuthorMapConverter(),
     Recipe: RecipeMapConverter(),
+    FirestoreAuthor: FirestoreAuthorMapConverter(),
+    FirestoreRecipe: FirestoreRecipeMapConverter(),
   };
 
   /// Returns the [MapConverter] instance associated with the subtype [T].
