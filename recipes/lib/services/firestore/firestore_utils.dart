@@ -15,33 +15,6 @@ class FirestoreUtils {
   /// [Map] serving as a cache to [FirestoreUtils.collection].
   static final Map<Type, CollectionReference> _collectionReferenceMap = {};
 
-  /// Returns a [Future] of the in-app model [M] wrapped by [F] the associated
-  /// specialization of [FirestoreModel].
-  ///
-  /// If no document can be found at [path], a [Future] of ``null`` is returned.
-  static Future<M?> modelFuture<M extends BaseModel, F extends FirestoreModel>(
-      String path) async {
-    final future = firestoreModelFuture<F>(path) as Future<FirestoreModel<M>?>;
-    return (await future)?.model;
-  }
-
-  /// Returns a [Future] of the [T] specialization of [FirestoreModel] based on
-  /// the supplied [path].
-  ///
-  /// If no document can be found at [path], a [Future] of ``null`` is returned.
-  static Future<T?> firestoreModelFuture<T extends FirestoreModel>(
-      String path) async {
-    final docRef = doc<T>(path);
-    final docSnapshot = await docRef.get();
-    return docSnapshot.data();
-  }
-
-  /// Returns a [DocumentReference] for [T] based on the supplied [path].
-  static DocumentReference<T> doc<T extends FirestoreModel>(String path) {
-    final collectionRef = collection<T>();
-    return collectionRef.doc(path);
-  }
-
   /// Returns a [Stream] of a [List] holding [BaseModel] objects
   /// of type [M] where the documents belong to the currently logged in
   /// user's ID.
