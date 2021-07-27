@@ -26,4 +26,16 @@ class Author extends BaseModel {
     required this.name,
     required this.gender,
   });
+
+  // Override necessary to convert ``List<Author>`` to ``Set<Author>``
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Author &&
+          runtimeType == other.runtimeType &&
+          name == other.name &&
+          gender == other.gender;
+
+  @override
+  int get hashCode => name.hashCode ^ gender.hashCode;
 }

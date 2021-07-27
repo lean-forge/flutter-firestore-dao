@@ -6,7 +6,7 @@ class FirestoreAuthorMapConverter extends MapConverter<FirestoreAuthor> {
   @override
   FirestoreAuthor fromMap(Map<String, Object?> json) {
     final modelID = json['recipeID'] as String;
-    final model = _authorMapConverter.fromMap(json);
+    final model = _authorMapConverter.fromMap(json['author'] as Map<String, Object?>);
     return FirestoreAuthor(modelID: modelID, model: model);
   }
 

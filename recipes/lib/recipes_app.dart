@@ -15,7 +15,8 @@ class RecipesApp extends StatelessWidget {
       initialRoute: RecipesScreen.routeName,
       routes: {
         RecipesScreen.routeName: (ctx) => RecipesScreen(),
-        RecipeDetailScreen.routeName: (ctx) => RecipeDetailScreen()
+        RecipeDetailScreen.routeName: (ctx) => RecipeDetailScreen(),
+        AuthorsScreen.routeName: (ctx) => AuthorsScreen(),
       },
     );
   }
