@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recipes/screens/index.dart';
 
-final Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+final Color darkBlue = Color.fromARGB(255, 40, 69, 97);
 
 class RecipesApp extends StatelessWidget {
   const RecipesApp({Key? key}) : super(key: key);
