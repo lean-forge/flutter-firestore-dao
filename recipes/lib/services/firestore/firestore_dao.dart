@@ -20,23 +20,12 @@ abstract class FirestoreDao<T extends BaseModel> {
     Recipe: () => FirestoreRecipeDao(),
   };
 
-  /// Returns an [BaseModel] instance based on the provided [path]
-  /// or ``null`` if no record can be found in Firestore with such a [path].
-  Future<T?> getByPath(String path);
-
   /// Returns all the [BaseModel] instances read from Firestore
   /// as a [Stream] of a [List].
   ///
   /// Calling this method is ideal to use in a [StreamProvider]
   /// or in a [StreamBuilder].
   Stream<List<T>> modelStream();
-
-  /// Persists the passed [model] to Firestore.
-  ///
-  /// The method uses [auxMap] as a helper object to pass additional arguments
-  /// to writes, such as the document path in Firestore or the [WriteBatch]
-  /// object to be used.
-  Future<void> write(T model, {Map<String, Object>? auxMap});
 
   /// Utility method to access thr concrete [FirestoreDao] instance
   /// associated with the [BaseModel] of type [T].
