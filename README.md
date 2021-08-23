@@ -1,8 +1,36 @@
 # Flutter Firebase Firestore Example
 
-This is the companion repository for the [fourth blog post](https://www.expressflow.com/blog/posts/flutter-firebase-firestore-example-part4) of the series on how to integrate Firebase Firestore into a Flutter app while leveraging Dart language features and the DAO pattern.
+You have just landed into the companion repository for a blog post series that aims to introduce a battle-tested way for handling Firestore data in your Flutter application.
 
-## Follow along
+You will be able to follow along the code of each post in a specific branch of this repo:
+
+#### Part 1
+
+_Getting started with a Flutter & Firestore app that you will love to maintain._
+
+- [Blog post](https://www.expressflow.com/blog/posts/flutter-firebase-firestore-example-part1)
+- [Companion branch](https://github.com/expressflow/flutter-firestore-dao/tree/01-start)
+
+#### Part 2
+
+_Moving from conventional Dart model classes to Firestore compatible ones._
+
+- [Blog post](https://www.expressflow.com/blog/posts/flutter-firebase-firestore-example-part2)
+- [Companion branch](https://github.com/expressflow/flutter-firestore-dao/tree/02-firestore-model)
+
+#### Part 3
+
+_Accessing Firestore data through a common interface._
+
+- [Blog post](https://www.expressflow.com/blog/posts/flutter-firebase-firestore-example-part3)
+- [Companion branch](https://github.com/expressflow/flutter-firestore-dao/tree/03-firestore-dao)
+
+#### Part 4
+
+_Battle testing the introduced design by extending our toy app._
+
+- [Blog post](https://www.expressflow.com/blog/posts/flutter-firebase-firestore-example-part4)
+- [Companion branch](https://github.com/expressflow/flutter-firestore-dao/tree/04-battle-test)
 
 ### Flutter app
 
