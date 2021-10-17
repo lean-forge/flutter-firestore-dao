@@ -15,6 +15,7 @@ class RecipesApp extends StatelessWidget {
         stream: FirestoreDao.of<UserPreference>().modelStream(),
         builder: (context, snapshot) {
           final preferences = snapshot.data ?? <UserPreference>[];
+          // Sorting by date to use the most recent UserPreference
           preferences.sort((a, b) => a.dateModified.compareTo(b.dateModified));
           final primaryColor = preferences.isNotEmpty
               ? preferences.last.appPrimaryColor

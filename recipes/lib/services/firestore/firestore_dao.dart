@@ -29,7 +29,7 @@ abstract class FirestoreDao<T extends BaseModel> {
   /// or in a [StreamBuilder].
   Stream<List<T>> modelStream();
 
-  /// Persists the passed [model] to Firestore and returns its ID as a [String].
+  /// Persists the passed [model] to Firestore.
   void write(T model);
 
   /// Utility method to access thr concrete [FirestoreDao] instance
