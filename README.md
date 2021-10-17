@@ -32,6 +32,13 @@ _Battle testing the introduced design by extending our toy app._
 - [Blog post](https://www.expressflow.com/blog/posts/flutter-firebase-firestore-example-part4)
 - [Companion branch](https://github.com/expressflow/flutter-firestore-dao/tree/04-battle-test)
 
+#### Extension 1: Persisting data to the cloud
+
+_Add `write` functionality to the DAO._
+
+- [Blog post](https://www.expressflow.com/blog/posts/flutter-firebase-firestore-example-persisting-data-to-the-cloud)
+- [Companion branch](https://github.com/expressflow/flutter-firestore-dao/tree/05-support-model-creation)
+
 ### Flutter app
 
 You can explore the base Flutter app by moving into the app directory and starting the application.
