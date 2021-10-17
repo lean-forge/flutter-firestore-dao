@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:recipes/models/firestore/firestore_user_preference.dart';
 import 'package:recipes/models/index.dart';
 
 /// Static utility class to access Firestore collections of [FirestoreModel]s
@@ -9,7 +10,9 @@ class FirestoreUtils {
   /// names of their enclosing collection in Firestore
   static final Map<Type, String> _collectionPathMap = {
     FirestoreRecipe: 'recipes',
-    FirestoreAuthor: 'recipes' // Authors are stored as sub-documents of recipes
+    // Authors are stored as sub-documents of recipes
+    FirestoreAuthor: 'recipes',
+    FirestoreUserPreference: 'user-preferences',
   };
 
   /// [Map] serving as a cache to [FirestoreUtils.collection].

@@ -6,4 +6,10 @@ class FirestoreAuthorDao extends FirestoreDao<Author> {
   Stream<List<Author>> modelStream() {
     return FirestoreUtils.modelStream<Author, FirestoreAuthor>();
   }
+
+  @override
+  void write(Author model) {
+    // TODO: implement write
+    throw UnimplementedError();
+  }
 }

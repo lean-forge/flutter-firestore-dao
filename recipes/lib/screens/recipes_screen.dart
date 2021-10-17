@@ -39,12 +39,24 @@ class RecipesScreen extends StatelessWidget {
         icon: Icon(Icons.account_circle_outlined));
   }
 
+  Widget _buildUserPreferencesIconButton(BuildContext context) {
+    return IconButton(
+        onPressed: () => showDialog(
+              context: context,
+              builder: (ctx) => ColorPickerDialog(),
+            ),
+        icon: Icon(Icons.color_lens_outlined));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Recipes'),
-        actions: [_buildAuthorsScreenIconButton(context)],
+        actions: [
+          _buildAuthorsScreenIconButton(context),
+          _buildUserPreferencesIconButton(context),
+        ],
       ),
       // Loading Recipe data from the DAO
       body: _buildRecipeList(),

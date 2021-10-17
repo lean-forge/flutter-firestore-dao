@@ -1,4 +1,17 @@
-import 'package:recipes/models/app/base_model.dart';
+import 'package:recipes/models/index.dart';
+
+/// Used to create [FirestoreModel] objects dynamically based on a type parameter
+/// when calling [FirestoreModel.from].
+final Map<Type, dynamic> _firestoreWrapperModelMap = {
+  UserPreference: (
+    String modelID,
+    Object model,
+  ) =>
+      FirestoreUserPreference(
+        modelID: modelID,
+        model: model as UserPreference,
+      ),
+};
 
 /// Interface to wrap [BaseModel] child classes of type [T] that shall be
 /// persisted to Firestore.
@@ -18,4 +31,11 @@ abstract class FirestoreModel<T extends BaseModel> {
     required this.modelID,
     required this.model,
   });
+
+  static FirestoreModel<T> from<T extends BaseModel>(
+    String modelID,
+    T model,
+  ) {
+    return _firestoreWrapperModelMap[T](modelID, model) as FirestoreModel<T>;
+  }
 }

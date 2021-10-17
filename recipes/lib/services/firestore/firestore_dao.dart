@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:recipes/models/index.dart';
 import 'package:recipes/services/firestore/firestore_author_dao.dart';
 import 'package:recipes/services/firestore/firestore_recipe_dao.dart';
+import 'package:recipes/services/firestore/firestore_user_preference_dao.dart';
 
 /// Interface for model-specific Firestore interaction.
 abstract class FirestoreDao<T extends BaseModel> {
@@ -18,6 +19,7 @@ abstract class FirestoreDao<T extends BaseModel> {
   static final Map<Type, dynamic> _firestoreDaoMap = {
     Author: () => FirestoreAuthorDao(),
     Recipe: () => FirestoreRecipeDao(),
+    UserPreference: () => FirestoreUserPreferenceDao(),
   };
 
   /// Returns all the [BaseModel] instances read from Firestore
@@ -26,6 +28,9 @@ abstract class FirestoreDao<T extends BaseModel> {
   /// Calling this method is ideal to use in a [StreamProvider]
   /// or in a [StreamBuilder].
   Stream<List<T>> modelStream();
+
+  /// Persists the passed [model] to Firestore and returns its ID as a [String].
+  void write(T model);
 
   /// Utility method to access thr concrete [FirestoreDao] instance
   /// associated with the [BaseModel] of type [T].

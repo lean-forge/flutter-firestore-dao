@@ -6,4 +6,9 @@ class FirestoreRecipeDao extends FirestoreDao<Recipe> {
   Stream<List<Recipe>> modelStream() {
     return FirestoreUtils.modelStream<Recipe, FirestoreRecipe>();
   }
+
+  @override
+  void write(Recipe model) {
+    throw UnimplementedError();
+  }
 }
